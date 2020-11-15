@@ -187,6 +187,26 @@ def player_stats(name)
   end
 end
 
+def big_shoe_rebounds
+  biggest = 0 
+  game_hash.each do |teams, info|
+    info[:players].each do |each_player|
+      if each_player[:shoe] > biggest
+        biggest = each_player[:shoe]
+      end
+    end
+  end
+  
+  game_hash.each do |teams, info|
+    info[:players].each do |each_player|
+      if each_player[:shoe] == biggest
+        return each_player[:rebounds]
+      end
+    end
+  end
+end
+
+      
 
 
   
